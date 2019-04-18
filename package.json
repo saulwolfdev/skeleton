@@ -1,0 +1,24 @@
+{
+  "name": "skeleton",
+  "version": "1.0.0",
+  "description": "entorno limpio solo css",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "scss":"node-sass -w src/scss/ -o src/css/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/saulwolfcode/skeleton.git"
+  },
+  "author": "saul alejos garay",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/saulwolfcode/skeleton/issues"
+  },
+  "homepage": "https://github.com/saulwolfcode/skeleton#readme",
+  "devDependencies": {
+    "node-sass": "^4.11.0",
+    "nodemon": "^1.18.11"
+  }
+}
