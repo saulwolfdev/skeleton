@@ -10,39 +10,41 @@ import browserSync from "browser-sync"
 
 const server = browserSync.create()
 
-gulp.task("sass",()=>{
-    gulp.src("./dev/scss/styles.scss")
-    .pipe(plumber())
-    .pipe(sass({
-        outputStyle:"compact"
-    }))
+gulp.task("sass", () => {
+   return gulp.src("./src/scss/styles.scss")
+        .pipe(plumber())
+        .pipe(sass({
+            outputStyle: "compact"
+        }))
 })
-.pipe(autoprefixer({
-    browsers:["last 3 versions"]
-}))
-.pipe(gulp.dest("./public/css"))
-.pipe(server.stream())
-gulp.task("pug",()=>{
-    gulp.src("./dev/pug/*.pug")
-    .pipe(plumber())
-    .pipe(pug({
-        pretty:true
+    .pipe(autoprefixer({
+        browsers: ["last 3 versions"]
     }))
-    .pipe(gulp.dest("./public"))
+    .pipe(gulp.dest("./public/css"))
+    .pipe(server.stream())
+gulp.task("pug", () => {
+    return gulp.src("./src/pug/*.pug")
+        .pipe(plumber())
+        .pipe(pug({
+            pretty: true
+        }))
+        .pipe(gulp.dest("./public"))
 })
-gulp.task("babel",()=>{
-    gulp.src("./dev/js/*.js")
-    .pipe(plumber())
-    .pipe(babel({
-        presets:["env"]
-    }))
-    .pipe(gulp.dest("./dev/js/es5"))
+gulp.task("babel", () => {
+    return gulp.src("./src/js/*.js")
+        .pipe(plumber())
+        .pipe(babel({
+            presets: ["env"]
+        }))
+        .pipe(concat("script-min.js"))
+        .pipe(uglify())
+        .pipe(gulp.dest("./src/js/es5"))
 })
-gulp.task("default",()=>{
+gulp.task("default", () => {
     server.init({
-        server:"./public"
+        server: "./public"
     })
 })
-gulp.watch("./dev/scss/styles.scss",["sass"])
-gulp.watch("./dev/pug/*.pug",["pug"].on("change",server.reload))
-gulp.watch("./dev/js/*.js",["babel","compres"]).on("change",server.reload)
+gulp.watch("./src/scss/styles.scss", gulp.series("sass"))
+gulp.watch("./src/pug/*.pug", gulp.series("pug").on("change", server.reload))
+gulp.watch("./src/js/*.js", gulp.series("babel")).on("change", server.reload)
