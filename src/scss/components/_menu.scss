@@ -3,9 +3,37 @@
     padding-left: 0;
     margin-top: 0;
     margin-bottom:0;
-    display: flex;
 }
 .main-menu__link{
     color:$text-color;
     margin-left: 1rem;
+}
+.main-menu__item{
+    padding:1rem; 
+}
+.main-nav{
+   position: fixed;
+   height: calc(100vh - #{$header-height});
+   width: 70vw;
+   background-color: $dark-color;
+   top:$header-height;
+   right: -80vh;
+   padding-top: 1rem;
+   transition: right .3s;
+
+&.show{
+    right: 0;
+}
+
+}
+.main-menu-hamburger{
+    $color:rgb(99, 99, 99);
+    width: 2.2rem;
+    height: 1.4rem;
+    cursor: pointer;
+    background: linear-gradient(
+        $color 20%, transparent 20%, 
+        transparent 40%,  $color 40%,
+        $color 60%, transparent 60%, 
+        transparent 80%, $color 80%);
 }

@@ -37,6 +37,7 @@ img {
 
 .main-header__block {
   justify-content: space-between;
+  flex-wrap: wrap;
   align-items: center;
   height: 100%; }
 
@@ -47,5 +48,29 @@ img {
   list-style: none;
   padding-left: 0;
   margin-top: 0;
-  margin-bottom: 0;
-  display: flex; }
+  margin-bottom: 0; }
+
+.main-menu__link {
+  color: #000;
+  margin-left: 1rem; }
+
+.main-menu__item {
+  padding: 1rem; }
+
+.main-nav {
+  position: fixed;
+  height: calc(100vh - 4rem);
+  width: 70vw;
+  background-color: rgba(0, 0, 0, 0.514);
+  top: 4rem;
+  right: -80vh;
+  padding-top: 1rem;
+  transition: right .3s; }
+  .main-nav.show {
+    right: 0; }
+
+.main-menu-hamburger {
+  width: 2.2rem;
+  height: 1.4rem;
+  cursor: pointer;
+  background: linear-gradient(#636363 20%, transparent 20%, transparent 40%, #636363 40%, #636363 60%, transparent 60%, transparent 80%, #636363 80%); }
