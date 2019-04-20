@@ -1,0 +1,11 @@
+@mixin from($media-queries) {
+    @if map-has-key($breakpoints,$media-queries){
+        @media screen and(min-width:map_get($breakpoints,$media-queries)) {
+            @content;
+        }
+     }@else{
+            @media screen and(min-width: $media-queries) {
+                @content;
+            }
+        }
+    }
