@@ -3,10 +3,16 @@
     padding-left: 0;
     margin-top: 0;
     margin-bottom:0;
+    @include from(l){
+        display: flex;
+    }
 }
 .main-menu__link{
     color:$text-color;
     margin-left: 1rem;
+    @include from(l){
+        color: $text-color;
+    }
 }
 .main-menu__item{
     padding:1rem; 
@@ -20,7 +26,14 @@
    right: -80vh;
    padding-top: 1rem;
    transition: right .3s;
-
+   z-index: var(--z-fixed);
+    @include from(l){
+        position  : static;
+        background: transparent;
+        padding-top: 0;
+        height    : auto;
+        width     : auto;
+    }
 &.show{
     right: 0;
 }
@@ -36,4 +49,7 @@
         transparent 40%,  $color 40%,
         $color 60%, transparent 60%, 
         transparent 80%, $color 80%);
+        @include from(l){
+            display: none;
+        }
 }

@@ -5,4 +5,24 @@
     display: flex;
     margin-left: auto;
     margin-right: auto;
+    flex-wrap: wrap;
+}
+.center-block{
+    margin-left:auto;
+    margin-right: auto;
+}
+.center-text{
+text-align: center;    
+}
+@for $i from 1 through 20 {
+    .s-#{$i*5}{
+        width: #{$i*5%};
+    }
+}
+@include from(l){
+    @for $i from 1 through 20 {
+        .s-#{$i*5}{
+            width: #{$i*5%};
+        }
+    }
 }
