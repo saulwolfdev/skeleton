@@ -1,0 +1,12 @@
+.main-header{
+    height: 4rem;
+    border-bottom  : 1px solid $border-color; 
+}
+.main-header__block{
+    justify-content: space-between;
+    align-items: center;
+    height: 100%;
+}
+.main-logo{
+    height: 2rem;
+}

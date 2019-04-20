@@ -1,0 +1,30 @@
+$extra-small:350px;
+$small:450px;
+$medium:879px;
+$large:1230px;
+$extra-large:1600px;
+:root{
+    --scroll-bar:13px;
+  }
+*{
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+@mixin media-queries($breakpoint) {
+    @media screen and(min-width:$breakpoint){
+        @content
+    }
+}
+*,*::before,*::after{
+    box-sizing: border-box;
+}
+body{
+    margin: 0;
+}
+a{
+    text-decoration: none;
+}
+img{
+    max-width: 100%;
+}

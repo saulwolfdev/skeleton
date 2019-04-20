@@ -1,0 +1,9 @@
+$max-width:1200px;
+$border-color:#ccc;
+$text-color:#000;
+
+.footer{
+    font-size: 2em;
+    background-color: burlywood;
+    width: calc(100vw - var(--scroll-bar));
+}
