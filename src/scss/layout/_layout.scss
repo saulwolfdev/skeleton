@@ -7,6 +7,28 @@
     margin-right: auto;
     flex-wrap: wrap;
 }
+.l-section{
+   margin-bottom: 2rem;
+   @include from(l){
+       margin-bottom: 4rem;
+   }
+   &--diagonal{
+       position: relative;
+       &:before{
+        content: "";
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        z-index: var(--z-back);
+        background-color: rgb(0, 234, 255);
+        transform: skewY(-1deg) scaleY(1.05);
+        @include from(l){
+            transform: skewY(-2deg) scaleY(1.1);
+        }
+        
+       }
+   } 
+}
 .center-block{
     margin-left:auto;
     margin-right: auto;
@@ -21,7 +43,7 @@ text-align: center;
 }
 @include from(l){
     @for $i from 1 through 20 {
-        .s-#{$i*5}{
+        .l-#{$i*5}{
             width: #{$i*5%};
         }
     }
