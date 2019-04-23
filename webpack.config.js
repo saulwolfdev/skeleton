@@ -56,13 +56,13 @@ module.exports = {
       {
         test: /\.(jpe?g|png|gif|svg|webp)$/i,
         use: [
-          "file-loader?name=assets/img/[name].[ext]",
+          "file-loader?name=assets/[name].[ext]",
           "image-webpack-loader?bypassOnDebug"
         ]
       },
       {
         test: /\.(ttf|eot|woff2?|mp4|mp3|txt|xml|pdf)$/i,
-        use: "file-loader?name=assets/css/[name].[ext]"
+        use: "file-loader?name=assets/[name].[ext]"
       }
     ]
   },
