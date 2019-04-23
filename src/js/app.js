@@ -9,7 +9,3 @@ const toggle = document.getElementById (toggleId),
       }
 }
 showMenu("main-menu-hamburger","main-nav")
-
-// const getScrollBarWidth=()=>innerWidth -
-// document.documentElement.clientWidth
-// document.documentElement.style.setProperty("--scroll-bar",getScrollBarWidth())

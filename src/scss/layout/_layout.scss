@@ -34,7 +34,7 @@
     margin-right: auto;
 }
 .center-text{
-text-align: center;    
+text-align: center;   
 }
 @for $i from 1 through 20 {
     .s-#{$i*5}{
@@ -47,4 +47,4 @@ text-align: center;
             width: #{$i*5%};
         }
     }
-}
+} 
