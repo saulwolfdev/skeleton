@@ -1,8 +1,9 @@
 const HtmlWebpackPlugin = require("html-webpack-plugin"),
   MiniCssExtractPlugin = require("mini-css-extract-plugin"),
-  CleanWebpackPlugin = require("clean-webpack-plugin"),
-  autoprefixer = require("autoprefixer")
-
+  // CleanWebpackPlugin = require("clean-webpack-plugin"),
+  autoprefixer = require("autoprefixer");
+  
+const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 
 module.exports = {
   entry: {
@@ -20,9 +21,10 @@ module.exports = {
         use: {
           loader: "babel-loader"
         }
-      },{
-        test:/\.tpl.html$/,
-        use:"es6-template-string"
+      },
+      {
+        test: /\.tpl.html$/,
+        use: "es6-template-string"
       },
       {
         test: /\.html$/,
@@ -67,7 +69,16 @@ module.exports = {
     ]
   },
   plugins: [
-    new CleanWebpackPlugin(["dist/**/*.*"]),
+    new CleanWebpackPlugin(
+      {
+        dry: false,
+        verbose: true,
+        cleanStaleWebpackAssets: true,
+        protectWebpackAssets: false,
+        cleanOnceBeforeBuildPatterns: ["dist/**/*.*"]
+      }
+      // ["dist/**/*.*"]
+    ),
     new MiniCssExtractPlugin({
       filename: "[name].[chunkhash].css",
       chunkFilename: "[id].css"
@@ -76,12 +87,19 @@ module.exports = {
       template: "./src/template.html",
       filename: "index.html",
       chunks: ["js"],
-      minify:{
-        html5:true,
-        collapseWhitespace:true,
-        caseSensitive:true,
-        removeComments:true
+      minify: {
+        html5: true,
+        collapseWhitespace: true,
+        caseSensitive: true,
+        removeComments: true
       }
     })
   ]
-}
+};
+        // new CleanWebpackPlugin({
+        //   dry: false,
+        //   verbose: true,
+        //   cleanStaleWebpackAssets: true,
+        //   protectWebpackAssets: false,
+        //   cleanOnceBeforeBuildPatterns: ["**/*"]
+        // });
