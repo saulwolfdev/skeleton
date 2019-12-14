@@ -3,6 +3,7 @@ $small:450px;
 $medium:879px;
 $large:1230px;
 $extra-large:1600px;
+$rojo:red;
 :root{
     --scroll-bar:13px;
   }
@@ -23,8 +24,7 @@ body{
     margin: 0;
     font-family: lato, sans-serif;
     font-size:var(--body-font-size);
-    background-color: red;
-
+    background-color: $rojo;
 }
 a{
     text-decoration: none;
