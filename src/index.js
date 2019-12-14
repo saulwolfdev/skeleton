@@ -1,4 +1,4 @@
-// import styles from "./scss/styles.scss";
+import styles from "./scss/styles.scss";
 // import styles from "./css/styles.css";
 
 
@@ -12,5 +12,5 @@ const showMenu  = (toggleId,navId)=>{
               })
           }
     }
-    showMenu("main-menu-hamburger","main-nav")
+    showMenu("main-menu-hamburger","main-nav");
     

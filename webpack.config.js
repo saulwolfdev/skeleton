@@ -1,6 +1,5 @@
 const HtmlWebpackPlugin = require("html-webpack-plugin"),
   MiniCssExtractPlugin = require("mini-css-extract-plugin"),
-  // CleanWebpackPlugin = require("clean-webpack-plugin"),
   autoprefixer = require("autoprefixer");
   
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
@@ -35,24 +34,33 @@ module.exports = {
           }
         ]
       },
+      // {
+      //   test: /\.(css|scss)$/,
+      //   use: [
+      //     "style-loader",
+      //     MiniCssExtractPlugin.loader,
+      //     "css-loader?minimize&sourceMap",
+      //     {
+      //       loader: "postcss-loader",
+      //       options: {
+      //         autoprefixer: {
+      //           browser: ["last 2 versions"]
+      //         },
+      //         sourceMap: true,
+      //         plugins: () => [autoprefixer]
+      //       }
+      //     },
+      //     "resolve-url-loader",
+      //     "sass-loader?outputStyle=compressed&sourceMap"
+      //   ]
+      // },
       {
-        test: /\.(css|scss)$/,
+        test: /\.(css|sass|scss)$/,
         use: [
-          "style-loader",
           MiniCssExtractPlugin.loader,
-          "css-loader?minimize&sourceMap",
-          {
-            loader: "postcss-loader",
-            options: {
-              autoprefixer: {
-                browser: ["last 2 versions"]
-              },
-              sourceMap: true,
-              plugins: () => [autoprefixer]
-            }
-          },
-          "resolve-url-loader",
-          "sass-loader?outputStyle=compressed&sourceMap"
+          "css-loader",
+          "sass-loader",
+          "style-loader"
         ]
       },
       {
@@ -69,16 +77,13 @@ module.exports = {
     ]
   },
   plugins: [
-    new CleanWebpackPlugin(
-      {
-        dry: false,
-        verbose: true,
-        cleanStaleWebpackAssets: true,
-        protectWebpackAssets: false,
-        cleanOnceBeforeBuildPatterns: ["dist/**/*.*"]
-      }
-      // ["dist/**/*.*"]
-    ),
+    new CleanWebpackPlugin({
+      dry: false,
+      verbose: true,
+      cleanStaleWebpackAssets: true,
+      protectWebpackAssets: false,
+      cleanOnceBeforeBuildPatterns: ["dist/**/*.*"]
+    }),
     new MiniCssExtractPlugin({
       filename: "[name].[chunkhash].css",
       chunkFilename: "[id].css"
@@ -96,10 +101,3 @@ module.exports = {
     })
   ]
 };
-        // new CleanWebpackPlugin({
-        //   dry: false,
-        //   verbose: true,
-        //   cleanStaleWebpackAssets: true,
-        //   protectWebpackAssets: false,
-        //   cleanOnceBeforeBuildPatterns: ["**/*"]
-        // });
